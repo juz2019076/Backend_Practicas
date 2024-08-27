@@ -1,5 +1,5 @@
 import { response, request } from "express";
-import Personales from "../personales/personales";
+import Personales from "../personales/personales.js";
 
 export const personalGet = async (req, res) => {
     const { limite, desde } = req.query;

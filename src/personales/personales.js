@@ -1,6 +1,6 @@
 import mongoose, { Schema } from 'mongoose';
 
-const DtosPersonalesSchema = new mongoose.Schema({
+const DtosPersonalesSchema = mongoose.Schema({
     primer_nombre: {
         type: String,
         required: [true, 'El primer nombre es obligatorio'],
@@ -55,7 +55,6 @@ const DtosPersonalesSchema = new mongoose.Schema({
     }
 });
 
-export const DtosPersonales = mongoose.model('DtosPersonales', DtosPersonalesSchema);
-
+export default mongoose.model('Personales', DtosPersonalesSchema);
 
 

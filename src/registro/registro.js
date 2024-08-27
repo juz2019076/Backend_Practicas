@@ -1,6 +1,6 @@
 import mongoose, { Schema } from 'mongoose';
 
-const RegistroSchema = new mongoose.Schema({
+const RegistroSchema =  mongoose.Schema({
     file: {
         type: String,
         required: [true, 'El nombre del archivo es obligatorio'],
@@ -47,4 +47,4 @@ const RegistroSchema = new mongoose.Schema({
     ]
 });
 
-export const Registro = mongoose.model('Registro', RegistroSchema);
+export default mongoose.model('Registro', RegistroSchema);

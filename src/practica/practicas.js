@@ -1,6 +1,6 @@
 // Modelo para InformacionPracticas
 import mongoose, { Schema } from 'mongoose';
-const InformacionPracticasSchema = new mongoose.Schema({
+const InformacionPracticasSchema =  mongoose.Schema({
     ID_Practicante: {
         type: String,
         required: [true, 'El ID del practicante es obligatorio'],
@@ -53,4 +53,4 @@ const InformacionPracticasSchema = new mongoose.Schema({
     }
 });
 
-export const InformacionPracticas = mongoose.model('InformacionPracticas', InformacionPracticasSchema);
+export default mongoose.model('Practicas', InformacionPracticasSchema);

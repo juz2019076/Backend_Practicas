@@ -1,5 +1,5 @@
 import { response, request } from "express";
-import Registro from "../registro/registro";
+import Registro from "../registro/registro.js";
 
 export const registroGet = async (req, res) => {
     const { limite, desde } = req.query;

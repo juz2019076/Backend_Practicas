@@ -1,5 +1,5 @@
 import { response, request } from "express";
-import Empresa from "../empresa/empresa";
+import Empresa from "../empresa/empresa.js";
 
 export const empresaGet = async (req, res) => {
     const { limite, desde } = req.query;

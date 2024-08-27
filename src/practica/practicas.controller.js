@@ -1,5 +1,5 @@
 import { response, request } from "express";
-import Practicas from "../practica/practicas";
+import Practicas from "../practica/practicas.js";
 
 export const practicaGet = async (req, res) => {
     const { limite, desde } = req.query;

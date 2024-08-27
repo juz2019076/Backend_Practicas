@@ -1,6 +1,8 @@
 // Modelo para InfoEmpresarial
+
 import mongoose, { Schema } from 'mongoose';
-const InfoEmpresarialSchema = new mongoose.Schema({
+
+const InfoEmpresarialSchema =  mongoose.Schema({
     Id_empleado: {
         type: String,
         required: [true, 'El ID del empleado es obligatorio'],
@@ -53,4 +55,4 @@ const InfoEmpresarialSchema = new mongoose.Schema({
     }
 });
 
-export const InfoEmpresarial = mongoose.model('InfoEmpresarial', InfoEmpresarialSchema);
+export default mongoose.model('Empresa', InfoEmpresarialSchema);

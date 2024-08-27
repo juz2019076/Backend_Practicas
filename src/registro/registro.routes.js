@@ -1,7 +1,7 @@
 import  { Router } from "express";
 import { check } from "express-validator";
 
-import { registroGet } from "./registro.controller";
+import { registroGet } from "./registro.controller.js";
 
 const router = Router();
 

@@ -1,7 +1,7 @@
 import  { Router } from "express";
 import { check } from "express-validator";
 
-import { empresaGet } from "./empresa.controller";
+import { empresaGet } from "./empresa.controller.js";
 
 const router = Router();
 
