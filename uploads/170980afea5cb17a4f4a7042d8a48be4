@@ -1,0 +1,23 @@
+{
+    "ID": "12345",
+    "Usuario": "usuario_test",
+    "Operacion": "Crear",
+    "Nombre_Tabla": "Empresa",
+    "Id_Asociado": "emp123",
+    "Detalles": {
+      "Id_empleado": "emp123",
+      "Código_personal": "C001",
+      "Fecha_contratación": "2023-01-15T00:00:00Z",
+      "Fecha_cargo": "2023-06-01T00:00:00Z",
+      "Cargo": "Gerente",
+      "Sueldo": 50000,
+      "Descripción_responsabilidades": "Gerencia de proyectos",
+      "Personal_cargo": 5,
+      "Jefe_inmediato": "dir001",
+      "Estado": "Alta",
+      "action": "Crear",
+      "fecha_de_registro": "2023-07-01T00:00:00Z"
+    },
+    "Fecha_de_Registro": "2023-07-01T00:00:00Z"
+  }
+  
