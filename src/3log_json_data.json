@@ -1,0 +1,25 @@
+[
+    {
+        "ID": "10",
+        "Usuario": "user_test",
+        "Operacion": "INSERT",
+        "Nombre_Tabla": "Dtos_Personales",
+        "Id_Asociado": "25",
+        "Detalles": {
+            "primer_nombre": "Carlos",
+            "segundo_nombre": "Andrés",
+            "tercer_nombre": "",
+            "primer_apellido": "Pérez",
+            "segundo_apellido": "González",
+            "apellido_de_casada": "",
+            "fecha_de_nac": "2024-09-15",
+            "lugar_de_nac": "Ciudad de Guatemala",
+            "direccion_domicilio": "Zona 1, Ciudad de Guatemala",
+            "numero_celular": "55567890",
+            "numero_casa": "12345678",
+            "correo_electronico": "carlos.perez@example.com",
+            "action": "Crear"
+        },
+        "Fecha_de_Registro": "2024-09-01 08:30:00"
+    }
+]
