@@ -1,0 +1,25 @@
+[
+    {
+        "ID": "5",
+        "Usuario": "admin",
+        "Operacion": "INSERT",
+        "Nombre_Tabla": "Dtos_Personales",
+        "Id_Asociado": "18",
+        "Detalles": {
+            "primer_nombre": "Angel",
+            "segundo_nombre": "Yordani",
+            "tercer_nombre": "",
+            "primer_apellido": "Navas",
+            "segundo_apellido": "Samayoa",
+            "apellido_de_casada": "",
+            "fecha_de_nac": "2024-08-13",
+            "lugar_de_nac": "Capital",
+            "direccion_domicilio": "Ciudad Quetzal",
+            "numero_celular": "46953505",
+            "numero_casa": "20302022",
+            "correo_electronico": "angelnavas20dic@gmail.com",
+            "action": "Crear"
+        },
+        "Fecha_de_Registro": "2024-08-22 19:38:28"
+    }
+]

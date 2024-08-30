@@ -10,42 +10,75 @@ const __dirname = path.dirname(__filename);
 export const handleFileUpload = async (req, res) => {
     try {
         const files = req.files;
-        const md5FilePath = path.join(__dirname, '../3checksum.md5');
+        const checksumsDir = path.join(__dirname, '../checksums');
 
-        const checksumData = fs.readFileSync(md5FilePath, 'utf8');
-        const expectedChecksums = checksumData.split('\n').filter(line => line.trim() !== '');
+        // Leer todos los archivos .md5 en el directorio de checksums
+        const md5Files = fs.readdirSync(checksumsDir).filter(file => file.endsWith('.md5'));
+
+        const expectedChecksums = {};
+
+        for (let md5File of md5Files) {
+            const checksumData = fs.readFileSync(path.join(checksumsDir, md5File), 'utf8');
+            const lines = checksumData.split('\n').filter(line => line.trim() !== '');
+
+            for (let line of lines) {
+                const [checksum, filename] = line.split(' ');
+                if (filename) {
+                    expectedChecksums[filename.trim()] = checksum.trim();
+                    console.log(`Checksum esperado para ${filename.trim()}: ${checksum.trim()}`);
+                }
+            }
+        }
 
         for (let file of files) {
-            const fileContent = fs.readFileSync(file.path, 'utf8');
+            // Procesar solo archivos JSON
+            if (path.extname(file.originalname) === '.md5') {
+                console.log(`El archivo ${file.originalname} es un archivo .md5, se omite.`);
+                continue;
+            }
 
-            let jsonData;
+            if (path.extname(file.originalname) !== '.json') {
+                const message = `El archivo ${file.originalname} no es un archivo JSON, omitiendo.`;
+                console.log(message);
+                return res.status(400).json({ message });
+            }
+
+            let fileContent;
             try {
-                jsonData = JSON.parse(fileContent);
+                // Leer y verificar que el contenido es un JSON válido
+                fileContent = fs.readFileSync(file.path, 'utf8');
+                JSON.parse(fileContent);
             } catch (error) {
-                return res.status(400).json({ message: `El archivo ${file.originalname} no es un JSON válido.` });
+                const message = `El archivo ${file.originalname} no tiene un contenido JSON válido.`;
+                console.log(message);
+                return res.status(400).json({ message });
             }
 
             const md5sum = crypto.createHash('md5').update(fileContent).digest('hex');
 
             console.log(`MD5 Calculado para ${file.originalname}: ${md5sum}`);
 
-            const originalChecksum = expectedChecksums.find(line => line.includes(file.originalname));
+            const originalChecksum = expectedChecksums[file.originalname];
 
             if (originalChecksum) {
-                console.log(`Checksum original encontrado en el archivo para ${file.originalname}: ${originalChecksum}`);
+                console.log(`Checksum original encontrado para ${file.originalname}: ${originalChecksum}`);
             } else {
-                console.log(`No se encontró un checksum para ${file.originalname} en el archivo checksum.md5`);
+                const message = `No se encontró un checksum para ${file.originalname} en los archivos .md5`;
+                console.log(message);
+                return res.status(400).json({ message });
             }
 
-            if (!originalChecksum || !originalChecksum.includes(md5sum)) {
-                return res.status(400).json({ message: `El archivo ${file.originalname} está corrupto o no coincide con el checksum.` });
+            if (originalChecksum !== md5sum) {
+                const message = `El archivo ${file.originalname} está corrupto o no coincide con el checksum.`;
+                console.log(message);
+                return res.status(400).json({ message });
             }
 
             const newRegistro = new Registro({
                 file: file.originalname,
                 fecha_creacion: new Date(),
                 md5: md5sum,
-                data: jsonData
+                data: JSON.parse(fileContent)
             });
 
             await newRegistro.save();
