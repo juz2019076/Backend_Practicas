@@ -2,8 +2,14 @@ import { response, request } from "express";
 import Practicas from "../practica/practicas.js";
 
 export const practicaGet = async (req, res) => {
-    const { limite, desde } = req.query;
+    
+    const { limite, desde, orden, campo } = req.query;
     const query = {};
+    const sort = {};
+
+    if (campo) {
+        sort[campo] = orden === 'desc' ? -1 : 1;
+    }
 
     try {
 

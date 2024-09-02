@@ -2,9 +2,13 @@ import { response, request } from "express";
 import Registro from "../registro/registro.js";
 
 export const registroGet = async (req, res) => {
-    const { limite, desde } = req.query;
+    const { limite, desde, orden, campo } = req.query;
     const query = {};
+    const sort = {};
 
+    if (campo) {
+        sort[campo] = orden === 'desc' ? -1 : 1;
+    }
     try {
 
         const [total, registro] = await Promise.all([

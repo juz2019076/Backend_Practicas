@@ -2,8 +2,13 @@ import { response, request } from "express";
 import Personales from "../personales/personales.js";
 
 export const personalGet = async (req, res) => {
-    const { limite, desde } = req.query;
+    const { limite, desde, orden, campo } = req.query;
     const query = {};
+    const sort = {};
+
+    if (campo) {
+        sort[campo] = orden === 'desc' ? -1 : 1;
+    }
 
     try {
 
