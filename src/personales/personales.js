@@ -51,7 +51,7 @@ const DtosPersonalesSchema = mongoose.Schema({
     },
     fecha_de_registro: {
         type: Date,
-        required: [true, 'La fecha de registro es obligatoria'],
+        default: Date.now
     }
 });
 

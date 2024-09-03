@@ -24,7 +24,7 @@ const InfoEmpresarialSchema =  mongoose.Schema({
         required: [true, 'El cargo es obligatorio'],
     },
     Sueldo: {
-        type: Number,
+        type: String,
         required: [true, 'El sueldo es obligatorio'],
     },
     Descripción_responsabilidades: {
@@ -51,7 +51,7 @@ const InfoEmpresarialSchema =  mongoose.Schema({
     },
     fecha_de_registro: {
         type: Date,
-        required: [true, 'La fecha de registro es obligatoria'],
+        default: Date.now()
     }
 });
 

@@ -8,6 +8,7 @@ import empresaRoutes from "../src/empresa/empresa.routes.js";
 import personalRoutes from "../src/personales/personales.routes.js";
 import practicasRoutes from "../src/practica/practicas.routes.js";
 import registroRoutes from "../src/registro/registro.routes.js";
+import updloadRoutes from "../src/upload/upload.routes.js";
 
 class Server {
     constructor() {
@@ -18,6 +19,7 @@ class Server {
         this.personalPath = '/v1/personal'
         this.practicaPath = '/v1/practica'
         this.registroPath = '/v1/registro'
+        this.updloadPath = '/v1/updload'
 
 
         this.conectarDB();
@@ -42,6 +44,7 @@ class Server {
         this.app.use(this.personalPath, personalRoutes);
         this.app.use(this.practicaPath, practicasRoutes);
         this.app.use(this.registroPath, registroRoutes);
+        this.app.use(this.updloadPath, updloadRoutes)
     }
 
     listen() {

@@ -36,7 +36,7 @@ const RegistroSchema =  mongoose.Schema({
                 required: [true, 'El ID asociado es obligatorio'],
             },
             Detalles: {
-                type: Schema.Types.Mixed, // Esto te permitirá usar los diferentes esquemas en este campo.
+                type: Schema.Types.Mixed, 
                 required: [true, 'Los detalles son obligatorios'],
             },
             Fecha_de_Registro: {

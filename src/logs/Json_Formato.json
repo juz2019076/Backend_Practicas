@@ -1,0 +1,77 @@
+{
+
+"file":"Json_Formato.json", 
+"fecha_creacion": "28/08/2024",
+"data":
+[ 
+    
+
+
+    {
+        "ID": "1",
+        "Usuario": "admin",
+        "Operacion": "INSERT",
+        "Nombre_Tabla": "Datos_Personales",
+        "Id_Asociado": "1",
+        "Detalles": {
+            "primer_nombre": "XDDDD",
+            "segundo_nombre": "Yordani",
+            "tercer_nombre": "",
+            "primer_apellido": "Navas",
+            "segundo_apellido": "Samayoa",
+            "apellido_de_casada": "",
+            "fecha_de_nac": "2024-08-13",
+            "lugar_de_nac": "Capital",
+            "direccion_domicilio": "Ciudad Quetzal",
+            "numero_celular": "46953505",
+            "numero_casa": "20302022",
+            "correo_electronico": "angelnavas20dic@gmail.com",
+            "action": "Crear"
+        },
+        "Fecha_de_Registro": "2024-08-22 19:38:28"
+    },
+    {
+        "ID": "1",
+        "Usuario": "admin",
+        "Operacion": "INSERT",
+        "Nombre_Tabla": "InfoEmpresarial",
+        "Id_Asociado": "1",
+        "Detalles": {
+            "Id_empleado": "1",
+            "Código_personal": "1.1.1.1",
+            "Fecha_contratación": "2024-08-13",
+            "Fecha_cargo": "2024-08-13",
+            "Cargo": "Tesorero",
+            "Sueldo": "Q3500",
+            "Descripción_responsabilidades": "Resguardar el dinero",
+            "Personal_cargo": "0",
+            "Jefe_inmediato": "Esdras Salazar",
+            "Estado": "Alta",
+            "action": "Crear"
+        },
+        "Fecha_de_Registro": "2024-08-22 19:38:28"
+    },
+    {
+        "ID": "1",
+        "Usuario": "admin",
+        "Operacion": "INSERT",
+        "Nombre_Tabla": "Informacion_Practicas",
+        "Id_Asociado": "1",
+        "Detalles": {
+            "ID_Practicante": "1",
+            "Institucion_Colegio": "Instituto Emiliani Somascos",
+            "Grado": "5to",
+            "Carrera": "Perito Contador",
+            "Habilidades": "Libros de Caja",
+            "Número_De_Horas": "300",
+            "Fecha_De_inicio": "2024-08-13",
+            "Fecha_De_Finalización": "2024-10-13",
+            "Referido": "Oscar Mendezz",
+            "Estado": "Aceptado",
+            "action": "Crear"
+        },
+        "Fecha_de_Registro": "2024-08-22 19:38:28"
+    }
+]
+
+}
