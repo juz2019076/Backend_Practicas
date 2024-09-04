@@ -10,11 +10,12 @@
     {
         "ID": "1",
         "Usuario": "admin",
-        "Operacion": "INSERT",
+        "Operacion": "UPDATE",
         "Nombre_Tabla": "Datos_Personales",
         "Id_Asociado": "1",
         "Detalles": {
-            "primer_nombre": "XDDDD",
+            "id_personal": "1",
+            "primer_nombre": "Sebastian",
             "segundo_nombre": "Yordani",
             "tercer_nombre": "",
             "primer_apellido": "Navas",
@@ -33,7 +34,7 @@
     {
         "ID": "1",
         "Usuario": "admin",
-        "Operacion": "INSERT",
+        "Operacion": "UPDATE",
         "Nombre_Tabla": "InfoEmpresarial",
         "Id_Asociado": "1",
         "Detalles": {
@@ -41,7 +42,7 @@
             "Código_personal": "1.1.1.1",
             "Fecha_contratación": "2024-08-13",
             "Fecha_cargo": "2024-08-13",
-            "Cargo": "Tesorero",
+            "Cargo": "Contratado",
             "Sueldo": "Q3500",
             "Descripción_responsabilidades": "Resguardar el dinero",
             "Personal_cargo": "0",
@@ -54,14 +55,14 @@
     {
         "ID": "1",
         "Usuario": "admin",
-        "Operacion": "INSERT",
+        "Operacion": "UPDATE",
         "Nombre_Tabla": "Informacion_Practicas",
         "Id_Asociado": "1",
         "Detalles": {
-            "ID_Practicante": "1",
-            "Institucion_Colegio": "Instituto Emiliani Somascos",
+            "Id_Practicante": "1",
+            "Institucion_Colegio": "Kinal",
             "Grado": "5to",
-            "Carrera": "Perito Contador",
+            "Carrera": "Perito Informatica",
             "Habilidades": "Libros de Caja",
             "Número_De_Horas": "300",
             "Fecha_De_inicio": "2024-08-13",

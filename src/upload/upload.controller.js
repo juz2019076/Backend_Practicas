@@ -6,6 +6,7 @@ import { fileURLToPath } from 'url';
 import Personales from '../personales/personales.js';
 import Practicas from '../practica/practicas.js';
 import Empresa from '../empresa/empresa.js';
+import LogUpdate from '../logUpdate/logUpdate.js';
 
 const modelos = {
     'Dtos_Personales': Personales,
@@ -99,12 +100,12 @@ export const handleFileUpload = async (req, res) => {
 
             for (let log of logs) {
                 try {
-                    if (!log.Fecha_de_Registro || !log.Detalles || !log.Id_Asociado || 
+                    if (!log.Fecha_de_Registro || !log.Detalles || !log.Id_Asociado ||
                         !log.Nombre_Tabla || !log.Operacion || !log.Usuario || !log.ID) {
                         throw new Error(`Faltan campos obligatorios en el registro: ${JSON.stringify(log)}`);
                     }
                     const Modelo = modelos[log.Nombre_Tabla];
-                    
+
                     if (!Modelo) {
                         const message = `No se encontró un modelo para la tabla ${log.Nombre_Tabla}.`;
                         console.log(message);
@@ -119,8 +120,58 @@ export const handleFileUpload = async (req, res) => {
                             break;
 
                         case 'UPDATE':
-                            await Modelo.updateOne({ _id: log.Detalles._id }, log.Detalles);
+
+                            let filter = {};
+
+                            if ((log.Nombre_Tabla === 'InfoEmpresarial' || log.Nombre_Tabla === 'Empresa') && log.Detalles.Id_empleado) {
+                                filter = { Id_empleado: log.Detalles.Id_empleado };
+                            } else if ((log.Nombre_Tabla === 'InformacionPracticas' || log.Nombre_Tabla === 'Informacion_Practicas') && log.Detalles.Id_Practicante) {
+                                filter = { Id_Practicante: log.Detalles.Id_Practicante };
+                            } else if ((log.Nombre_Tabla === 'Dtos_Personales' || log.Nombre_Tabla === 'Datos_Personales') && log.Detalles.id_personal) {
+                                filter = { id_personal: log.Detalles.id_personal };
+                            } else {
+                                const message = `No se encontró un identificador válido para actualizar en Detalles para la tabla ${log.Nombre_Tabla}.`;
+                                console.log(message);
+                                continue;
+                            }
+
+
+                            const existingRecord = await Modelo.findOne(filter);
+
+                            if (!existingRecord) {
+                                const message = `Registro no encontrado para actualización en la tabla ${log.Nombre_Tabla}`;
+                                console.log(message);
+                                return res.status(400).json({ message });
+                            }
+
+                            const cambios = [];
+                            for (let key in log.Detalles) {
+                                if (log.Detalles[key] !== existingRecord[key]) {
+                                    cambios.push({
+                                        campo: key,
+                                        valor_anterior: existingRecord[key],
+                                        valor_nuevo: log.Detalles[key]
+                                    });
+                                }
+                            }
+
+                            await Modelo.updateOne(filter, log.Detalles);
                             console.log(`Datos actualizados en la tabla ${log.Nombre_Tabla}`);
+
+                            if (cambios.length > 0) {
+                                const updateLog = new LogUpdate({
+                                    Usuario: log.Usuario,
+                                    Nombre_Tabla: log.Nombre_Tabla,
+                                    Id_Asociado: log.Id_Asociado,
+                                    Cambios: cambios
+                                });
+
+                                await updateLog.save();
+                                console.log('Log de actualización guardado exitosamente');
+                            } else {
+                                console.log('No se detectaron cambios en los datos');
+                            }
+
                             break;
 
                         case 'SELECT':
@@ -149,9 +200,18 @@ export const handleFileUpload = async (req, res) => {
                     });
 
                     await newRegistro.save();
-                    console.log('Registro guardado exitosamente');
 
-                    fs.unlinkSync(file.path);
+                    try {
+                        const filePath = file.path;
+
+                        if (fs.existsSync(filePath)) {
+                            fs.unlinkSync(filePath);
+                        } else {
+                            console.log(`Archivo ${filePath} no encontrado. No se puede eliminar.`);
+                        }
+                    } catch (error) {
+                        console.error(`Error al intentar eliminar el archivo: ${error.message}`);
+                    }
 
                 } catch (error) {
                     console.error('Error al guardar el registro:', error.message);
@@ -159,7 +219,6 @@ export const handleFileUpload = async (req, res) => {
                 }
             }
         }
-
 
         res.status(200).json({ message: 'Archivos procesados exitosamente.' });
 

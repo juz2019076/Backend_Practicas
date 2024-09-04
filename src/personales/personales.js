@@ -1,6 +1,12 @@
 import mongoose, { Schema } from 'mongoose';
 
 const DtosPersonalesSchema = mongoose.Schema({
+
+    id_personal: {
+        type: String,
+        required: [true, 'La id asignada es obligatoria']
+    },
+
     primer_nombre: {
         type: String,
         required: [true, 'El primer nombre es obligatorio'],

@@ -17,31 +17,24 @@ const RegistroSchema =  mongoose.Schema({
         {
             ID: {
                 type: String,
-                required: [true, 'El ID es obligatorio'],
             },
             Usuario: {
                 type: String,
-                required: [true, 'El usuario es obligatorio'],
             },
             Operacion: {
                 type: String,
-                required: [true, 'La operación es obligatoria'],
             },
             Nombre_Tabla: {
                 type: String,
-                required: [true, 'El nombre de la tabla es obligatorio'],
             },
             Id_Asociado: {
                 type: String,
-                required: [true, 'El ID asociado es obligatorio'],
             },
             Detalles: {
                 type: Schema.Types.Mixed, 
-                required: [true, 'Los detalles son obligatorios'],
             },
             Fecha_de_Registro: {
                 type: Date,
-                required: [true, 'La fecha de registro es obligatoria'],
             }
         }
     ]
