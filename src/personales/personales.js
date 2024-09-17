@@ -2,7 +2,7 @@ import mongoose, { Schema } from 'mongoose';
 
 const DtosPersonalesSchema = mongoose.Schema({
 
-    id_personal: {
+    Id_Asociado: {
         type: String,
         required: [true, 'La id asignada es obligatoria']
     },

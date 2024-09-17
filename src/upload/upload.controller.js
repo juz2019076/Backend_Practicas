@@ -15,6 +15,16 @@ const modelos = {
     "Datos_Personales": Personales,
     'Informacion_Practicas': Practicas
 };
+function convertirFechas(obj) {
+    const camposDeFecha = ['fecha_de_nac', 'Fecha_de_Registro', 'Fecha_contratación', 'Fecha_cargo', 'Fecha_De_inicio', 'Fecha_De_Finalización'];
+
+    for (let key in obj) {
+        if (camposDeFecha.includes(key) && typeof obj[key] === 'string') {
+            obj[key] = new Date(obj[key]);
+        }
+    }
+    return obj;
+}
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -112,29 +122,32 @@ export const handleFileUpload = async (req, res) => {
                         return res.status(400).json({ message });
                     }
 
+                    log.Detalles = convertirFechas(log.Detalles);
+                    log.Fecha_de_Registro = convertirFechas({ fecha_de_nac: log.Fecha_de_Registro }).fecha_de_nac;
+
                     switch (log.Operacion) {
                         case 'INSERT':
+                            if (!log.Detalles.Id_Asociado) {
+                                const message = `Falta el campo 'Id_Asociado' en el registro para la tabla ${log.Nombre_Tabla}.`;
+                                console.log(message);
+                                return res.status(400).json({ message });
+                            }
+
                             const nuevoRegistro = new Modelo(log.Detalles);
                             await nuevoRegistro.save();
                             console.log(`Datos insertados en la tabla ${log.Nombre_Tabla}`);
                             break;
 
                         case 'UPDATE':
-
                             let filter = {};
 
-                            if ((log.Nombre_Tabla === 'InfoEmpresarial' || log.Nombre_Tabla === 'Empresa') && log.Detalles.Id_empleado) {
-                                filter = { Id_empleado: log.Detalles.Id_empleado };
-                            } else if ((log.Nombre_Tabla === 'InformacionPracticas' || log.Nombre_Tabla === 'Informacion_Practicas') && log.Detalles.Id_Practicante) {
-                                filter = { Id_Practicante: log.Detalles.Id_Practicante };
-                            } else if ((log.Nombre_Tabla === 'Dtos_Personales' || log.Nombre_Tabla === 'Datos_Personales') && log.Detalles.id_personal) {
-                                filter = { id_personal: log.Detalles.id_personal };
+                            if (log.Detalles.Id_Asociado) {
+                                filter = { Id_Asociado: log.Detalles.Id_Asociado };
                             } else {
-                                const message = `No se encontró un identificador válido para actualizar en Detalles para la tabla ${log.Nombre_Tabla}.`;
+                                const message = `No se encontró el campo 'Id_Asociado' en los detalles del registro para la tabla ${log.Nombre_Tabla}.`;
                                 console.log(message);
                                 continue;
                             }
-
 
                             const existingRecord = await Modelo.findOne(filter);
 
@@ -146,7 +159,13 @@ export const handleFileUpload = async (req, res) => {
 
                             const cambios = [];
                             for (let key in log.Detalles) {
-                                if (log.Detalles[key] !== existingRecord[key]) {
+                                if (key.includes('Fecha') && (log.Detalles[key].getTime() !== existingRecord[key].getTime())) {
+                                    cambios.push({
+                                        campo: key,
+                                        valor_anterior: existingRecord[key],
+                                        valor_nuevo: log.Detalles[key]
+                                    });
+                                } else if (log.Detalles[key] !== existingRecord[key]) {
                                     cambios.push({
                                         campo: key,
                                         valor_anterior: existingRecord[key],
@@ -173,6 +192,7 @@ export const handleFileUpload = async (req, res) => {
                             }
 
                             break;
+
 
                         case 'SELECT':
                             console.log(`Operación SELECT detectada, no se realiza ninguna acción.`);

@@ -3,12 +3,15 @@ import cors from 'cors';
 import helmet from 'helmet';
 import morgan from 'morgan';
 import { dbConnection } from './mongo.js';
+import bcrypt from 'bcrypt';
+import UserModel from '../src/usuarios/usuarios.js';
 
 import empresaRoutes from "../src/empresa/empresa.routes.js";
 import personalRoutes from "../src/personales/personales.routes.js";
 import practicasRoutes from "../src/practica/practicas.routes.js";
 import registroRoutes from "../src/registro/registro.routes.js";
-import updloadRoutes from "../src/upload/upload.routes.js";
+import uploadRoutes from '../src/upload/upload.routes.js'; 
+import loginRoutes from '../src/usuarios/login.routes.js'; 
 
 class Server {
     constructor() {
@@ -19,8 +22,8 @@ class Server {
         this.personalPath = '/v1/personal'
         this.practicaPath = '/v1/practica'
         this.registroPath = '/v1/registro'
-        this.updloadPath = '/v1/updload'
-
+        this.uploadPath = '/v1/upload';
+        this.usuariosPath = '/v1/usuarios'
 
         this.conectarDB();
         this.middlewares();
@@ -29,6 +32,20 @@ class Server {
 
     async conectarDB() {
         await dbConnection();
+
+     
+        const defaultEmail = "admin@example.com";
+        const defaultPassword = "admin123";
+
+        const existingUser = await UserModel.findOne({ email: defaultEmail });
+        if (!existingUser) {
+            const hashedPassword = await bcrypt.hash(defaultPassword, 10);
+            const newUser = new UserModel({ email: defaultEmail, password: hashedPassword });
+            await newUser.save();
+            console.log('Usuario predeterminado creado:', defaultEmail);
+        } else {
+            console.log('Usuario predeterminado ya existe:', defaultEmail);
+        }
     }
 
     middlewares() {
@@ -44,7 +61,8 @@ class Server {
         this.app.use(this.personalPath, personalRoutes);
         this.app.use(this.practicaPath, practicasRoutes);
         this.app.use(this.registroPath, registroRoutes);
-        this.app.use(this.updloadPath, updloadRoutes)
+        this.app.use(this.uploadPath, uploadRoutes);
+        this.app.use(this.usuariosPath, loginRoutes);
     }
 
     listen() {

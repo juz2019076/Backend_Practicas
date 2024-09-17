@@ -3,7 +3,7 @@
 import mongoose, { Schema } from 'mongoose';
 
 const InfoEmpresarialSchema =  mongoose.Schema({
-    Id_empleado: {
+    Id_Asociado: {
         type: String,
         required: [true, 'El ID del empleado es obligatorio'],
     },

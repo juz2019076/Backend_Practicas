@@ -1,7 +1,7 @@
 // Modelo para InformacionPracticas
 import mongoose, { Schema } from 'mongoose';
 const InformacionPracticasSchema =  mongoose.Schema({
-    Id_Practicante: {
+    Id_Asociado: {
         type: String,
         required: [true, 'El ID del practicante es obligatorio'],
     },
