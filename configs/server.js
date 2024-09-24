@@ -12,6 +12,8 @@ import practicasRoutes from "../src/practica/practicas.routes.js";
 import registroRoutes from "../src/registro/registro.routes.js";
 import uploadRoutes from '../src/upload/upload.routes.js'; 
 import loginRoutes from '../src/usuarios/login.routes.js'; 
+import logUpdateRoutes from '../src/logUpdate/logUpdate.routes.js';
+
 
 class Server {
     constructor() {
@@ -23,7 +25,8 @@ class Server {
         this.practicaPath = '/v1/practica'
         this.registroPath = '/v1/registro'
         this.uploadPath = '/v1/upload';
-        this.usuariosPath = '/v1/usuarios'
+        this.usuariosPath = '/v1/usuarios';
+        this.logUpdatePath = '/v1/logUpdate';
 
         this.conectarDB();
         this.middlewares();
@@ -63,6 +66,7 @@ class Server {
         this.app.use(this.registroPath, registroRoutes);
         this.app.use(this.uploadPath, uploadRoutes);
         this.app.use(this.usuariosPath, loginRoutes);
+        this.app.use(this.logUpdatePath, logUpdateRoutes);
     }
 
     listen() {

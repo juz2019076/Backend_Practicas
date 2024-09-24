@@ -2,6 +2,7 @@
 import { Router } from 'express';
 import { login, logout } from './login.controller.js';  // Importar logout aquí
 import { body, validationResult } from 'express-validator';
+import { logLoginGet } from './loginLog.controller.js';
 
 const router = Router();
 
@@ -22,5 +23,7 @@ router.post(
 );
 
 router.post('/logout', logout);  // Ahora logout está definido
+
+router.get('/log', logLoginGet);
 
 export default router;

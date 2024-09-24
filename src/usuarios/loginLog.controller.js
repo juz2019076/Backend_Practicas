@@ -1,8 +1,7 @@
 import { response, request } from "express";
-import Registro from "../registro/registro.js";
+import LoginLogModel from "./loginLog.model.js";
 
-export const registroGet = async (req, res) => {
-
+export const logLoginGet = async (req, res) => {
     const { limite , desde , orden = 'asc', campo } = req.query; 
     const query = {};
     const sort = {};
@@ -13,9 +12,9 @@ export const registroGet = async (req, res) => {
 
 
     try {
-        const [total, registro] = await Promise.all([
-            Registro.countDocuments(query),
-            Registro.find(query)
+        const [total, loglogin] = await Promise.all([
+            LoginLogModel.countDocuments(query),
+            LoginLogModel.find(query)
                 .sort(sort) 
                 .skip(Number(desde)) 
                 .limit(Number(limite)) 
@@ -23,11 +22,11 @@ export const registroGet = async (req, res) => {
 
         res.status(200).json({
             total,
-            registro
+            loglogin
         });
 
     } catch (e) {
-        console.error('Error fetching practica:', e);
-        res.status(500).json({ msg: 'Error fetching practica' });
+        console.error('Error fetching logUpdate:', e);
+        res.status(500).json({ msg: 'Error fetching logUpdate' });
     }
 };

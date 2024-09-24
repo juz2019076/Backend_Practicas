@@ -10,7 +10,7 @@
     {
         "ID": "1",
         "Usuario": "admin",
-        "Operacion": "UPDATE",
+        "Operacion": "SELECT",
         "Nombre_Tabla": "Datos_Personales",
         "Id_Asociado": "1",
         "Detalles": {
@@ -34,7 +34,7 @@
     {
         "ID": "1",
         "Usuario": "admin",
-        "Operacion": "UPDATE",
+        "Operacion": "INSERT",
         "Nombre_Tabla": "InfoEmpresarial",
         "Id_Asociado": "1",
         "Detalles": {
@@ -55,7 +55,7 @@
     {
         "ID": "1",
         "Usuario": "admin",
-        "Operacion": "UPDATE",
+        "Operacion": "INSERT",
         "Nombre_Tabla": "Informacion_Practicas",
         "Id_Asociado": "1",
         "Detalles": {

@@ -18,7 +18,6 @@ const LoginLogSchema = new Schema({
     },
     logoutTime:{
         type: Date,
-        default: Date.now
     },
     ipAddress: {
         type: String,
