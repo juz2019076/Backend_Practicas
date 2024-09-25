@@ -1,11 +1,12 @@
 import mongoose from 'mongoose';
 
-const UsuarioSchema = new mongoose.Schema({
-    Usuario: {
+const LogVistaSchema = new mongoose.Schema({
+
+    usuario: {
         type: String,
         required: [true, 'El nombre de usuario es obligatorio'],
     },
-    Pagina: {
+    pagina: {
         type: String,
         required: [true, 'La página es obligatoria'],
     },
@@ -15,4 +16,4 @@ const UsuarioSchema = new mongoose.Schema({
     },
 });
 
-export default mongoose.model('Usuario', UsuarioSchema);
+export default mongoose.model('Logvista', LogVistaSchema);

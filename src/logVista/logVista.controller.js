@@ -1,6 +1,7 @@
-import Usuario from "./logVista.js"; // Importa el modelo Usuario desde log.js
+import Logvista from "./logVista.js"; // Importa el modelo Usuario desde log.js
+import { response, request } from "express";
 
-export const usuarioGet = async (req, res) => {
+export const logVistaGet = async (req, res) => {
     const { limite, desde, orden = 'asc', campo } = req.query;
     const query = {};
     const sort = {};
@@ -11,9 +12,9 @@ export const usuarioGet = async (req, res) => {
     }
 
     try {
-        const [total, usuarios] = await Promise.all([
-            Usuario.countDocuments(query), 
-            Usuario.find(query)
+        const [total, logvista] = await Promise.all([
+            Logvista.countDocuments(query), 
+            Logvista.find(query)
                 .sort(sort) 
                 .skip(Number(desde)) 
                 .limit(Number(limite)) 
@@ -21,7 +22,7 @@ export const usuarioGet = async (req, res) => {
 
         res.status(200).json({
             total,
-            usuarios
+            logvista
         });
 
     } catch (e) {
@@ -29,3 +30,17 @@ export const usuarioGet = async (req, res) => {
         res.status(500).json({ msg: 'Error fetching usuarios' });
     }
 };
+
+
+export const postLogVista = async (req, res) => {
+
+    const { usuario, pagina } = req.body;
+    const logVista = new Logvista ({usuario, pagina})
+
+    await logVista.save();
+
+    res.status(200).json({
+        logVista
+    });
+
+}

@@ -13,7 +13,7 @@ import registroRoutes from "../src/registro/registro.routes.js";
 import uploadRoutes from '../src/upload/upload.routes.js'; 
 import loginRoutes from '../src/usuarios/login.routes.js'; 
 import logUpdateRoutes from '../src/logUpdate/logUpdate.routes.js';
-
+import logVistaRoutes from '../src/logVista/logVista.routes.js'
 
 class Server {
     constructor() {
@@ -27,6 +27,7 @@ class Server {
         this.uploadPath = '/v1/upload';
         this.usuariosPath = '/v1/usuarios';
         this.logUpdatePath = '/v1/logUpdate';
+        this.logVistaPath = '/v1/logVista';
 
         this.conectarDB();
         this.middlewares();
@@ -67,6 +68,7 @@ class Server {
         this.app.use(this.uploadPath, uploadRoutes);
         this.app.use(this.usuariosPath, loginRoutes);
         this.app.use(this.logUpdatePath, logUpdateRoutes);
+        this.app.use(this.logVistaPath, logVistaRoutes);
     }
 
     listen() {
