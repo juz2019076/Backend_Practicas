@@ -12,7 +12,6 @@ const LogVistaSchema = new mongoose.Schema({
     },
     fecha_de_registro: {
         type: Date,
-        default: Date.now(),
     },
 });
 

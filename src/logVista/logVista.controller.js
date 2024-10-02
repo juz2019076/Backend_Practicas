@@ -35,7 +35,8 @@ export const logVistaGet = async (req, res) => {
 export const postLogVista = async (req, res) => {
 
     const { usuario, pagina } = req.body;
-    const logVista = new Logvista ({usuario, pagina})
+    const fecha_de_registro =  Date.now();
+    const logVista = new Logvista ({usuario, pagina, fecha_de_registro})
 
     await logVista.save();
 

@@ -10,16 +10,16 @@
     {
         "ID": "1",
         "Usuario": "admin",
-        "Operacion": "SELECT",
+        "Operacion": "UPDATE",
         "Nombre_Tabla": "Datos_Personales",
-        "Id_Asociado": "1",
+        "Id_Asociado": "2",
         "Detalles": {
-            "Id_Asociado": "1",
-            "primer_nombre": "Rodrigo",
-            "segundo_nombre": "Yordani",
+            "Id_Asociado": "2",
+            "primer_nombre": "Hola",
+            "segundo_nombre": "Quetal",
             "tercer_nombre": "",
-            "primer_apellido": "Navas",
-            "segundo_apellido": "Samayoa",
+            "primer_apellido": "Cambiando",
+            "segundo_apellido": "Valores",
             "apellido_de_casada": "",
             "fecha_de_nac": "2024-08-13 10:00:00",
             "lugar_de_nac": "Capital",
@@ -72,7 +72,281 @@
             "action": "Crear"
         },
         "Fecha_de_Registro": "2024-08-22 19:38:28"
+    },
+    {
+        "ID": "1",
+        "Usuario": "admin",
+        "Operacion": "INSERT",
+        "Nombre_Tabla": "Informacion_Practicas",
+        "Id_Asociado": "1",
+        "Detalles": {
+            "Id_Asociado": "1",
+            "Institucion_Colegio": "Canadiese",
+            "Grado": "5to",
+            "Carrera": "Perito Informatica",
+            "Habilidades": "Libros de Caja",
+            "Número_De_Horas": "300",
+            "Fecha_De_inicio": "2024-08-13",
+            "Fecha_De_Finalización": "2024-10-13",
+            "Referido": "Oscar Mendezz",
+            "Estado": "Aceptado",
+            "action": "Crear"
+        },
+        "Fecha_de_Registro": "2024-08-22 19:38:28"
+    },
+    {
+        "ID": "1",
+        "Usuario": "admin",
+        "Operacion": "INSERT",
+        "Nombre_Tabla": "Informacion_Practicas",
+        "Id_Asociado": "1",
+        "Detalles": {
+            "Id_Asociado": "1",
+            "Institucion_Colegio": "Canadiese",
+            "Grado": "5to",
+            "Carrera": "Perito Informatica",
+            "Habilidades": "Libros de Caja",
+            "Número_De_Horas": "300",
+            "Fecha_De_inicio": "2024-08-13",
+            "Fecha_De_Finalización": "2024-10-13",
+            "Referido": "Oscar Mendezz",
+            "Estado": "Aceptado",
+            "action": "Crear"
+        },
+        "Fecha_de_Registro": "2024-08-22 19:38:28"
+    },
+    {
+        "ID": "1",
+        "Usuario": "admin",
+        "Operacion": "INSERT",
+        "Nombre_Tabla": "Informacion_Practicas",
+        "Id_Asociado": "1",
+        "Detalles": {
+            "Id_Asociado": "1",
+            "Institucion_Colegio": "Canadiese",
+            "Grado": "5to",
+            "Carrera": "Perito Informatica",
+            "Habilidades": "Libros de Caja",
+            "Número_De_Horas": "300",
+            "Fecha_De_inicio": "2024-08-13",
+            "Fecha_De_Finalización": "2024-10-13",
+            "Referido": "Oscar Mendezz",
+            "Estado": "Aceptado",
+            "action": "Crear"
+        },
+        "Fecha_de_Registro": "2024-08-22 19:38:28"
+    },
+    {
+        "ID": "1",
+        "Usuario": "admin",
+        "Operacion": "INSERT",
+        "Nombre_Tabla": "Informacion_Practicas",
+        "Id_Asociado": "1",
+        "Detalles": {
+            "Id_Asociado": "1",
+            "Institucion_Colegio": "Canadiese",
+            "Grado": "5to",
+            "Carrera": "Perito Informatica",
+            "Habilidades": "Libros de Caja",
+            "Número_De_Horas": "300",
+            "Fecha_De_inicio": "2024-08-13",
+            "Fecha_De_Finalización": "2024-10-13",
+            "Referido": "Oscar Mendezz",
+            "Estado": "Aceptado",
+            "action": "Crear"
+        },
+        "Fecha_de_Registro": "2024-08-22 19:38:28"
+    },
+    {
+        "ID": "1",
+        "Usuario": "admin",
+        "Operacion": "INSERT",
+        "Nombre_Tabla": "Informacion_Practicas",
+        "Id_Asociado": "1",
+        "Detalles": {
+            "Id_Asociado": "1",
+            "Institucion_Colegio": "Canadiese",
+            "Grado": "5to",
+            "Carrera": "Perito Informatica",
+            "Habilidades": "Libros de Caja",
+            "Número_De_Horas": "300",
+            "Fecha_De_inicio": "2024-08-13",
+            "Fecha_De_Finalización": "2024-10-13",
+            "Referido": "Oscar Mendezz",
+            "Estado": "Aceptado",
+            "action": "Crear"
+        },
+        "Fecha_de_Registro": "2024-08-22 19:38:28"
+    },
+    {
+        "ID": "1",
+        "Usuario": "admin",
+        "Operacion": "INSERT",
+        "Nombre_Tabla": "Informacion_Practicas",
+        "Id_Asociado": "1",
+        "Detalles": {
+            "Id_Asociado": "1",
+            "Institucion_Colegio": "Canadiese",
+            "Grado": "5to",
+            "Carrera": "Perito Informatica",
+            "Habilidades": "Libros de Caja",
+            "Número_De_Horas": "300",
+            "Fecha_De_inicio": "2024-08-13",
+            "Fecha_De_Finalización": "2024-10-13",
+            "Referido": "Oscar Mendezz",
+            "Estado": "Aceptado",
+            "action": "Crear"
+        },
+        "Fecha_de_Registro": "2024-08-22 19:38:28"
+    },
+    {
+        "ID": "1",
+        "Usuario": "admin",
+        "Operacion": "INSERT",
+        "Nombre_Tabla": "Informacion_Practicas",
+        "Id_Asociado": "1",
+        "Detalles": {
+            "Id_Asociado": "1",
+            "Institucion_Colegio": "Canadiese",
+            "Grado": "5to",
+            "Carrera": "Perito Informatica",
+            "Habilidades": "Libros de Caja",
+            "Número_De_Horas": "300",
+            "Fecha_De_inicio": "2024-08-13",
+            "Fecha_De_Finalización": "2024-10-13",
+            "Referido": "Oscar Mendezz",
+            "Estado": "Aceptado",
+            "action": "Crear"
+        },
+        "Fecha_de_Registro": "2024-08-22 19:38:28"
+    },
+    {
+        "ID": "1",
+        "Usuario": "admin",
+        "Operacion": "INSERT",
+        "Nombre_Tabla": "Informacion_Practicas",
+        "Id_Asociado": "1",
+        "Detalles": {
+            "Id_Asociado": "1",
+            "Institucion_Colegio": "Canadiese",
+            "Grado": "5to",
+            "Carrera": "Perito Informatica",
+            "Habilidades": "Libros de Caja",
+            "Número_De_Horas": "300",
+            "Fecha_De_inicio": "2024-08-13",
+            "Fecha_De_Finalización": "2024-10-13",
+            "Referido": "Oscar Mendezz",
+            "Estado": "Aceptado",
+            "action": "Crear"
+        },
+        "Fecha_de_Registro": "2024-08-22 19:38:28"
+    },
+    {
+        "ID": "1",
+        "Usuario": "admin",
+        "Operacion": "INSERT",
+        "Nombre_Tabla": "Informacion_Practicas",
+        "Id_Asociado": "1",
+        "Detalles": {
+            "Id_Asociado": "1",
+            "Institucion_Colegio": "Canadiese",
+            "Grado": "5to",
+            "Carrera": "Perito Informatica",
+            "Habilidades": "Libros de Caja",
+            "Número_De_Horas": "300",
+            "Fecha_De_inicio": "2024-08-13",
+            "Fecha_De_Finalización": "2024-10-13",
+            "Referido": "Oscar Mendezz",
+            "Estado": "Aceptado",
+            "action": "Crear"
+        },
+        "Fecha_de_Registro": "2024-08-22 19:38:28"
+    },
+    {
+        "ID": "1",
+        "Usuario": "admin",
+        "Operacion": "INSERT",
+        "Nombre_Tabla": "Informacion_Practicas",
+        "Id_Asociado": "1",
+        "Detalles": {
+            "Id_Asociado": "1",
+            "Institucion_Colegio": "Canadiese",
+            "Grado": "5to",
+            "Carrera": "Perito Informatica",
+            "Habilidades": "Libros de Caja",
+            "Número_De_Horas": "300",
+            "Fecha_De_inicio": "2024-08-13",
+            "Fecha_De_Finalización": "2024-10-13",
+            "Referido": "Oscar Mendezz",
+            "Estado": "Aceptado",
+            "action": "Crear"
+        },
+        "Fecha_de_Registro": "2024-08-22 19:38:28"
+    },
+    {
+        "ID": "1",
+        "Usuario": "admin",
+        "Operacion": "INSERT",
+        "Nombre_Tabla": "Informacion_Practicas",
+        "Id_Asociado": "1",
+        "Detalles": {
+            "Id_Asociado": "1",
+            "Institucion_Colegio": "Canadiese",
+            "Grado": "5to",
+            "Carrera": "Perito Informatica",
+            "Habilidades": "Libros de Caja",
+            "Número_De_Horas": "300",
+            "Fecha_De_inicio": "2024-08-13",
+            "Fecha_De_Finalización": "2024-10-13",
+            "Referido": "Oscar Mendezz",
+            "Estado": "Aceptado",
+            "action": "Crear"
+        },
+        "Fecha_de_Registro": "2024-08-22 19:38:28"
+    },
+    {
+        "ID": "1",
+        "Usuario": "admin",
+        "Operacion": "INSERT",
+        "Nombre_Tabla": "Informacion_Practicas",
+        "Id_Asociado": "1",
+        "Detalles": {
+            "Id_Asociado": "1",
+            "Institucion_Colegio": "Canadiese",
+            "Grado": "5to",
+            "Carrera": "Perito Informatica",
+            "Habilidades": "Libros de Caja",
+            "Número_De_Horas": "300",
+            "Fecha_De_inicio": "2024-08-13",
+            "Fecha_De_Finalización": "2024-10-13",
+            "Referido": "Oscar Mendezz",
+            "Estado": "Aceptado",
+            "action": "Crear"
+        },
+        "Fecha_de_Registro": "2024-08-22 19:38:28"
+    },
+    {
+        "ID": "1",
+        "Usuario": "admin",
+        "Operacion": "INSERT",
+        "Nombre_Tabla": "Informacion_Practicas",
+        "Id_Asociado": "1",
+        "Detalles": {
+            "Id_Asociado": "1",
+            "Institucion_Colegio": "Canadiese",
+            "Grado": "5to",
+            "Carrera": "Perito Informatica",
+            "Habilidades": "Libros de Caja",
+            "Número_De_Horas": "300",
+            "Fecha_De_inicio": "2024-08-13",
+            "Fecha_De_Finalización": "2024-10-13",
+            "Referido": "Oscar Mendezz",
+            "Estado": "Aceptado",
+            "action": "Crear"
+        },
+        "Fecha_de_Registro": "2024-08-22 19:38:28"
     }
+
 ]
 
 }
