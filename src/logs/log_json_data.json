@@ -1,25 +1,488 @@
-[
-    {
-        "ID": "5",
-        "Usuario": "admin",
-        "Operacion": "INSERT",
-        "Nombre_Tabla": "Dtos_Personales",
-        "Id_Asociado": "18",
-        "Detalles": {
-            "primer_nombre": "Angel",
-            "segundo_nombre": "Yordani",
-            "tercer_nombre": "",
-            "primer_apellido": "Navas",
-            "segundo_apellido": "Samayoa",
-            "apellido_de_casada": "",
-            "fecha_de_nac": "2024-08-13",
-            "lugar_de_nac": "Capital",
-            "direccion_domicilio": "Ciudad Quetzal",
-            "numero_celular": "46953505",
-            "numero_casa": "20302022",
-            "correo_electronico": "angelnavas20dic@gmail.com",
-            "action": "Crear"
+{
+    "file": "json_formato.json",
+    "fecha_creacion": "03\/10\/2024 14:23:19",
+    "data": [
+        {
+            "ID": 1439,
+            "Usuario": "admin",
+            "Operacion": "INSERT",
+            "Nombre_Tabla": "Dtos_Personales",
+            "Id_Asociado": "115",
+            "Detalles": {
+                "Primer_Nombre": "Juan",
+                "Segundo_Nombre": "",
+                "Tercer_Nombre": "",
+                "Primer_Apellido": "Perez",
+                "Segundo_Apellido": "",
+                "Apellido_de_Casada": "",
+                "Fecha_de_Nac": "2004-06-15",
+                "Lugar_de_Nac": "",
+                "Direcci\u00f3n_De_Domicilio": "",
+                "N\u00famero_de_Celular": "",
+                "N\u00famero_de_Casa": "",
+                "Correo_Electronico": "lucia.ortiz@emilianisomascos.edu.gt"
+            },
+            "Fecha_de_Registro": "2024-10-03 14:07:42"
         },
-        "Fecha_de_Registro": "2024-08-22 19:38:28"
-    }
-]
+        {
+            "ID": 1440,
+            "Usuario": "admin",
+            "Operacion": "INSERT",
+            "Nombre_Tabla": "Informacion_Practicas",
+            "Id_Asociado": "41",
+            "Detalles": {
+                "ID_Practicante": 115,
+                "Institucion_Colegio": "Instituto Emiliani Somascos",
+                "Grado": "Sexto Bachillerato",
+                "Carrera": "Informatica",
+                "Habilidades": "Java, Desarrollo web",
+                "Numero_de_Horas": "300",
+                "Fecha_De_inicio": "2024-08-16",
+                "Fecha_De_Finalizaci\u00f3n": "2024-10-04",
+                "Referido": "Juan Salazar",
+                "Estado": "Pendiente"
+            },
+            "Fecha_de_Registro": "2024-10-03 14:07:42"
+        },
+        {
+            "ID": 1441,
+            "Usuario": "admin",
+            "Operacion": "SELECT",
+            "Nombre_Tabla": "Dtos_Personales JOIN InfoEmpresarial",
+            "Id_Asociado": null,
+            "Detalles": {
+                "query": null,
+                "campos": {
+                    "Campo1": "Primer_Nombre",
+                    "Campo2": "Segundo_Nombre",
+                    "Campo3": "Primer_Apellido",
+                    "Campo4": "Segundo_Apellido",
+                    "Campo5": "Institucion_Colegio",
+                    "Campo6": "Grado",
+                    "Campo7": "Carrera",
+                    "Campo8": "Habilidades"
+                }
+            },
+            "Fecha_de_Registro": "2024-10-03 14:10:48"
+        },
+        {
+            "ID": 1442,
+            "Usuario": "admin",
+            "Operacion": "INSERT",
+            "Nombre_Tabla": "InfoEmpresarial",
+            "Id_Asociado": "62",
+            "Detalles": {
+                "Id_empleado": 52,
+                "Codigo_personal": "001.001.004.001",
+                "Fecha_contratacion": "2024-10-03",
+                "Fecha_cargo": "2024-10-04",
+                "Cargo": "Practicante",
+                "Sueldo": "0",
+                "Descripcion_responsabilidades": "Manejo de contratos legales",
+                "Personal_cargo": "0",
+                "Jefe_inmediato": "Juan Carlos",
+                "Estado": "Activo"
+            },
+            "Fecha_de_Registro": "2024-10-03 14:11:52"
+        },
+        {
+            "ID": 1443,
+            "Usuario": "admin",
+            "Operacion": "UPDATE",
+            "Nombre_Tabla": "Informacion_Practicas",
+            "Id_Asociado": "52",
+            "Detalles": {
+                "Estado": "Aceptado"
+            },
+            "Fecha_de_Registro": "2024-10-03 14:11:52"
+        },
+        {
+            "ID": 1444,
+            "Usuario": "admin",
+            "Operacion": "SELECT",
+            "Nombre_Tabla": "Dtos_Personales JOIN InfoEmpresarial",
+            "Id_Asociado": null,
+            "Detalles": {
+                "query": null,
+                "campos": {
+                    "Campo1": "Primer_Nombre",
+                    "Campo2": "Segundo_Nombre",
+                    "Campo3": "Primer_Apellido",
+                    "Campo4": "Segundo_Apellido",
+                    "Campo5": "Institucion_Colegio",
+                    "Campo6": "Grado",
+                    "Campo7": "Carrera",
+                    "Campo8": "Habilidades"
+                }
+            },
+            "Fecha_de_Registro": "2024-10-03 14:12:16"
+        },
+        {
+            "ID": 1445,
+            "Usuario": "admin",
+            "Operacion": "INSERT",
+            "Nombre_Tabla": "InfoEmpresarial",
+            "Id_Asociado": "63",
+            "Detalles": {
+                "Id_empleado": 115,
+                "Codigo_personal": "001.001.005.002",
+                "Fecha_contratacion": "2024-10-03",
+                "Fecha_cargo": "2024-10-04",
+                "Cargo": "Practicante",
+                "Sueldo": "0",
+                "Descripcion_responsabilidades": "Servicios generales",
+                "Personal_cargo": "0",
+                "Jefe_inmediato": "Juan Carlos",
+                "Estado": "Activo"
+            },
+            "Fecha_de_Registro": "2024-10-03 14:12:46"
+        },
+        {
+            "ID": 1446,
+            "Usuario": "admin",
+            "Operacion": "UPDATE",
+            "Nombre_Tabla": "Informacion_Practicas",
+            "Id_Asociado": "115",
+            "Detalles": {
+                "Estado": "Aceptado"
+            },
+            "Fecha_de_Registro": "2024-10-03 14:12:46"
+        },
+        {
+            "ID": 1447,
+            "Usuario": "admin",
+            "Operacion": "SELECT",
+            "Nombre_Tabla": "Dtos_Personales JOIN InfoEmpresarial",
+            "Id_Asociado": null,
+            "Detalles": {
+                "query": "SELECT dp.Primer_Nombre, dp.Segundo_Nombre, dp.Primer_Apellido, dp.Segundo_Apellido \r\n            FROM Dtos_Personales dp \r\n            JOIN InfoEmpresarial ie ON dp.ID = ie.Id_Empleado \r\n            WHERE (dp.Primer_Nombre LIKE '%Juan%' OR dp.Segundo_Nombre LIKE '%Juan%' OR dp.Primer_Apellido LIKE '%Juan%' OR dp.Segundo_Apellido LIKE '%Juan%') AND (dp.Primer_Nombre LIKE '%Perez%' OR dp.Segundo_Nombre LIKE '%Perez%' OR dp.Primer_Apellido LIKE '%Perez%' OR dp.Segundo_Apellido LIKE '%Perez%') \r\n            ORDER BY dp.Primer_Nombre ASC \r\n            LIMIT 20 OFFSET 0",
+                "campos": {
+                    "Campo1": "Primer_Nombre",
+                    "Campo2": "Segundo_Nombre",
+                    "Campo3": "Primer_Apellido",
+                    "Campo4": "Segundo_Apellido"
+                }
+            },
+            "Fecha_de_Registro": "2024-10-03 14:13:03"
+        },
+        {
+            "ID": 1448,
+            "Usuario": "admin",
+            "Operacion": "SELECT",
+            "Nombre_Tabla": "Dtos_Personales, InfoEmpresarial",
+            "Id_Asociado": null,
+            "Detalles": {
+                "searchQuery": "Juan Perez"
+            },
+            "Fecha_de_Registro": "2024-10-03 14:13:03"
+        },
+        {
+            "ID": 1449,
+            "Usuario": "admin",
+            "Operacion": "SELECT",
+            "Nombre_Tabla": "Dtos_Personales JOIN InfoEmpresarial",
+            "Id_Asociado": null,
+            "Detalles": {
+                "query": null,
+                "campos": {
+                    "Campo1": "Primer_Nombre",
+                    "Campo2": "Segundo_Nombre",
+                    "Campo3": "Primer_Apellido",
+                    "Campo4": "Segundo_Apellido",
+                    "Campo5": "Institucion_Colegio",
+                    "Campo6": "Grado",
+                    "Campo7": "Carrera",
+                    "Campo8": "Habilidades"
+                }
+            },
+            "Fecha_de_Registro": "2024-10-03 14:13:27"
+        },
+        {
+            "ID": 1450,
+            "Usuario": "admin",
+            "Operacion": "SELECT",
+            "Nombre_Tabla": "Dtos_Personales JOIN InfoEmpresarial",
+            "Id_Asociado": null,
+            "Detalles": {
+                "query": null,
+                "campos": {
+                    "Campo1": "Primer_Nombre",
+                    "Campo2": "Segundo_Nombre",
+                    "Campo3": "Primer_Apellido",
+                    "Campo4": "Segundo_Apellido",
+                    "Campo5": "Institucion_Colegio",
+                    "Campo6": "Grado",
+                    "Campo7": "Carrera",
+                    "Campo8": "Habilidades"
+                }
+            },
+            "Fecha_de_Registro": "2024-10-03 14:13:38"
+        },
+        {
+            "ID": 1451,
+            "Usuario": "admin",
+            "Operacion": "SELECT",
+            "Nombre_Tabla": "Dtos_Personales JOIN Informacion_Practicas",
+            "Id_Asociado": null,
+            "Detalles": {
+                "Fecha_De_Solicitud_Inicial": "2024-10-03"
+            },
+            "Fecha_de_Registro": "2024-10-03 14:13:38"
+        },
+        {
+            "ID": 1452,
+            "Usuario": "admin",
+            "Operacion": "SELECT",
+            "Nombre_Tabla": "Dtos_Personales JOIN Informacion_Practicas",
+            "Id_Asociado": null,
+            "Detalles": {
+                "Fecha_De_Solicitud_Final": "2024-10-04"
+            },
+            "Fecha_de_Registro": "2024-10-03 14:13:38"
+        },
+        {
+            "ID": 1453,
+            "Usuario": "admin",
+            "Operacion": "SELECT",
+            "Nombre_Tabla": "Dtos_Personales JOIN InfoEmpresarial",
+            "Id_Asociado": null,
+            "Detalles": {
+                "query": null,
+                "campos": {
+                    "Campo1": "Primer_Nombre",
+                    "Campo2": "Segundo_Nombre",
+                    "Campo3": "Primer_Apellido",
+                    "Campo4": "Segundo_Apellido",
+                    "Campo5": "Institucion_Colegio",
+                    "Campo6": "Grado",
+                    "Campo7": "Carrera",
+                    "Campo8": "Habilidades"
+                }
+            },
+            "Fecha_de_Registro": "2024-10-03 14:13:43"
+        },
+        {
+            "ID": 1454,
+            "Usuario": "admin",
+            "Operacion": "Entrar a pantalla Descargar Json",
+            "Nombre_Tabla": "Log_Json",
+            "Id_Asociado": null,
+            "Detalles": null,
+            "Fecha_de_Registro": "2024-10-03 14:14:37"
+        },
+        {
+            "ID": 1455,
+            "Usuario": "admin",
+            "Operacion": "Descargar Json",
+            "Nombre_Tabla": "Log_Json",
+            "Id_Asociado": null,
+            "Detalles": null,
+            "Fecha_de_Registro": "2024-10-03 14:15:00"
+        },
+        {
+            "ID": 1456,
+            "Usuario": "admin",
+            "Operacion": "Descargar Json",
+            "Nombre_Tabla": "Log_Json",
+            "Id_Asociado": null,
+            "Detalles": {
+                "fecha_de_json_al_descargar": "2024-10-03"
+            },
+            "Fecha_de_Registro": "2024-10-03 14:15:00"
+        },
+        {
+            "ID": 1457,
+            "Usuario": "admin",
+            "Operacion": "INSERT",
+            "Nombre_Tabla": "Dtos_Personales",
+            "Id_Asociado": "116",
+            "Detalles": {
+                "Primer_Nombre": "Angel",
+                "Segundo_Nombre": "Santiago",
+                "Tercer_Nombre": "",
+                "Primer_Apellido": "Mendez",
+                "Segundo_Apellido": "",
+                "Apellido_de_Casada": "",
+                "Fecha_de_Nac": "2005-07-15",
+                "Lugar_de_Nac": "",
+                "Direcci\u00f3n_De_Domicilio": "",
+                "N\u00famero_de_Celular": "",
+                "N\u00famero_de_Casa": "",
+                "Correo_Electronico": "lucia.ortiz@emilianisomascos.edu.gt"
+            },
+            "Fecha_de_Registro": "2024-10-03 14:18:08"
+        },
+        {
+            "ID": 1458,
+            "Usuario": "admin",
+            "Operacion": "INSERT",
+            "Nombre_Tabla": "Informacion_Practicas",
+            "Id_Asociado": "42",
+            "Detalles": {
+                "ID_Practicante": 116,
+                "Institucion_Colegio": "Instituto Emiliani Somascos",
+                "Grado": "Sexto Bachillerato",
+                "Carrera": "Informatica",
+                "Habilidades": "Java",
+                "Numero_de_Horas": "300",
+                "Fecha_De_inicio": "2024-08-16",
+                "Fecha_De_Finalizaci\u00f3n": "2024-10-04",
+                "Referido": "Juan Salazar",
+                "Estado": "Pendiente"
+            },
+            "Fecha_de_Registro": "2024-10-03 14:18:08"
+        },
+        {
+            "ID": 1459,
+            "Usuario": "admin",
+            "Operacion": "UPDATE",
+            "Nombre_Tabla": "InfoEmpresarial",
+            "Id_Asociado": "58",
+            "Detalles": {
+                "Estado": "De Baja"
+            },
+            "Fecha_de_Registro": "2024-10-03 20:19:18"
+        },
+        {
+            "ID": 1460,
+            "Usuario": "admin",
+            "Operacion": "UPDATE",
+            "Nombre_Tabla": "InfoEmpresarial",
+            "Id_Asociado": "58",
+            "Detalles": {
+                "Estado": "Activo"
+            },
+            "Fecha_de_Registro": "2024-10-03 20:19:53"
+        },
+        {
+            "ID": 1461,
+            "Usuario": "admin",
+            "Operacion": "SELECT",
+            "Nombre_Tabla": "Dtos_Personales JOIN InfoEmpresarial",
+            "Id_Asociado": null,
+            "Detalles": {
+                "query": null,
+                "campos": {
+                    "Campo1": "Primer_Nombre",
+                    "Campo2": "Segundo_Nombre",
+                    "Campo3": "Primer_Apellido",
+                    "Campo4": "Segundo_Apellido",
+                    "Campo5": "Institucion_Colegio",
+                    "Campo6": "Grado",
+                    "Campo7": "Carrera",
+                    "Campo8": "Habilidades"
+                }
+            },
+            "Fecha_de_Registro": "2024-10-03 14:20:47"
+        },
+        {
+            "ID": 1462,
+            "Usuario": "admin",
+            "Operacion": "INSERT",
+            "Nombre_Tabla": "InfoEmpresarial",
+            "Id_Asociado": "64",
+            "Detalles": {
+                "Id_empleado": 116,
+                "Codigo_personal": "001.001.001.007",
+                "Fecha_contratacion": "2024-10-03",
+                "Fecha_cargo": "2024-10-03",
+                "Cargo": "Practicante",
+                "Sueldo": "0",
+                "Descripcion_responsabilidades": "Manejo de papeleria",
+                "Personal_cargo": "0",
+                "Jefe_inmediato": "Juan Carlos",
+                "Estado": "Activo"
+            },
+            "Fecha_de_Registro": "2024-10-03 14:21:35"
+        },
+        {
+            "ID": 1463,
+            "Usuario": "admin",
+            "Operacion": "UPDATE",
+            "Nombre_Tabla": "Informacion_Practicas",
+            "Id_Asociado": "116",
+            "Detalles": {
+                "Estado": "Aceptado"
+            },
+            "Fecha_de_Registro": "2024-10-03 14:21:35"
+        },
+        {
+            "ID": 1464,
+            "Usuario": "admin",
+            "Operacion": "SELECT",
+            "Nombre_Tabla": "Dtos_Personales JOIN InfoEmpresarial",
+            "Id_Asociado": null,
+            "Detalles": {
+                "query": "SELECT dp.Primer_Nombre, dp.Segundo_Nombre, dp.Primer_Apellido, dp.Segundo_Apellido \r\n            FROM Dtos_Personales dp \r\n            JOIN InfoEmpresarial ie ON dp.ID = ie.Id_Empleado \r\n            WHERE (dp.Primer_Nombre LIKE '%Santiago%' OR dp.Segundo_Nombre LIKE '%Santiago%' OR dp.Primer_Apellido LIKE '%Santiago%' OR dp.Segundo_Apellido LIKE '%Santiago%') \r\n            ORDER BY dp.Primer_Nombre ASC \r\n            LIMIT 20 OFFSET 0",
+                "campos": {
+                    "Campo1": "Primer_Nombre",
+                    "Campo2": "Segundo_Nombre",
+                    "Campo3": "Primer_Apellido",
+                    "Campo4": "Segundo_Apellido"
+                }
+            },
+            "Fecha_de_Registro": "2024-10-03 14:21:46"
+        },
+        {
+            "ID": 1465,
+            "Usuario": "admin",
+            "Operacion": "SELECT",
+            "Nombre_Tabla": "Dtos_Personales, InfoEmpresarial",
+            "Id_Asociado": null,
+            "Detalles": {
+                "searchQuery": "Santiago"
+            },
+            "Fecha_de_Registro": "2024-10-03 14:21:46"
+        },
+        {
+            "ID": 1466,
+            "Usuario": "admin",
+            "Operacion": "SELECT",
+            "Nombre_Tabla": "Dtos_Personales JOIN InfoEmpresarial",
+            "Id_Asociado": null,
+            "Detalles": {
+                "query": null,
+                "campos": {
+                    "Campo1": "Primer_Nombre",
+                    "Campo2": "Segundo_Nombre",
+                    "Campo3": "Primer_Apellido",
+                    "Campo4": "Segundo_Apellido",
+                    "Campo5": "Institucion_Colegio",
+                    "Campo6": "Grado",
+                    "Campo7": "Carrera",
+                    "Campo8": "Habilidades"
+                }
+            },
+            "Fecha_de_Registro": "2024-10-03 14:21:54"
+        },
+        {
+            "ID": 1467,
+            "Usuario": "admin",
+            "Operacion": "Entrar a pantalla Descargar Json",
+            "Nombre_Tabla": "Log_Json",
+            "Id_Asociado": null,
+            "Detalles": null,
+            "Fecha_de_Registro": "2024-10-03 14:22:58"
+        },
+        {
+            "ID": 1468,
+            "Usuario": "admin",
+            "Operacion": "Descargar Json",
+            "Nombre_Tabla": "Log_Json",
+            "Id_Asociado": null,
+            "Detalles": null,
+            "Fecha_de_Registro": "2024-10-03 14:23:19"
+        },
+        {
+            "ID": 1469,
+            "Usuario": "admin",
+            "Operacion": "Descargar Json",
+            "Nombre_Tabla": "Log_Json",
+            "Id_Asociado": null,
+            "Detalles": {
+                "fecha_de_json_al_descargar": "2024-10-03"
+            },
+            "Fecha_de_Registro": "2024-10-03 14:23:19"
+        }
+    ]
+}

@@ -12,7 +12,15 @@ const modelos = {
     'Dtos_Personales': Personales,
     'InformacionPracticas': Practicas,
     'InfoEmpresarial': Empresa,
-    "Datos_Personales": Personales,
+    'Datos_Personales': Personales,
+    'Informacion_Practicas': Practicas
+};
+
+const modelosActualizacion = {
+    'Dtos_Personales': Personales,
+    'InformacionPracticas': Practicas,
+    'InfoEmpresarial': Empresa,
+    'Datos_Personales': Personales,
     'Informacion_Practicas': Practicas
 };
 function convertirFechas(obj) {
@@ -110,98 +118,122 @@ export const handleFileUpload = async (req, res) => {
 
             for (let log of logs) {
                 try {
-                    if (!log.Fecha_de_Registro || !log.Detalles || !log.Id_Asociado ||
-                        !log.Nombre_Tabla || !log.Operacion || !log.Usuario || !log.ID) {
+
+                    if ((log.Operacion === 'INSERT' || log.Operacion === 'UPDATE') &&
+                        (!log.Fecha_de_Registro || !log.Detalles ||
+                            log.Id_Asociado === undefined || !log.Nombre_Tabla ||
+                            !log.Operacion || !log.Usuario || !log.ID)) {
                         throw new Error(`Faltan campos obligatorios en el registro: ${JSON.stringify(log)}`);
                     }
-                    const Modelo = modelos[log.Nombre_Tabla];
 
-                    if (!Modelo) {
-                        const message = `No se encontró un modelo para la tabla ${log.Nombre_Tabla}.`;
-                        console.log(message);
-                        return res.status(400).json({ message });
-                    }
+                    if (log.Operacion !== 'SELECT' &&
+                        log.Operacion !== 'Descargar Json' &&
+                        log.Operacion !== 'Entrar a pantalla Descargar Json') {
+                        const Modelo = modelos[log.Nombre_Tabla];
 
-                    log.Detalles = convertirFechas(log.Detalles);
-                    log.Fecha_de_Registro = convertirFechas({ fecha_de_nac: log.Fecha_de_Registro }).fecha_de_nac;
-
-                    switch (log.Operacion) {
-                        case 'INSERT':
-                            if (!log.Detalles.Id_Asociado) {
-                                const message = `Falta el campo 'Id_Asociado' en el registro para la tabla ${log.Nombre_Tabla}.`;
-                                console.log(message);
-                                return res.status(400).json({ message });
-                            }
-
-                            const nuevoRegistro = new Modelo(log.Detalles);
-                            await nuevoRegistro.save();
-                            console.log(`Datos insertados en la tabla ${log.Nombre_Tabla}`);
-                            break;
-
-                        case 'UPDATE':
-                            let filter = {};
-
-                            if (log.Detalles.Id_Asociado) {
-                                filter = { Id_Asociado: log.Detalles.Id_Asociado };
-                            } else {
-                                const message = `No se encontró el campo 'Id_Asociado' en los detalles del registro para la tabla ${log.Nombre_Tabla}.`;
-                                console.log(message);
-                                continue;
-                            }
-
-                            const existingRecord = await Modelo.findOne(filter);
-
-                            if (!existingRecord) {
-                                const message = `Registro no encontrado para actualización en la tabla ${log.Nombre_Tabla}`;
-                                console.log(message);
-                                return res.status(400).json({ message });
-                            }
-
-                            const cambios = [];
-                            for (let key in log.Detalles) {
-                                if (key.includes('Fecha') && (log.Detalles[key].getTime() !== existingRecord[key].getTime())) {
-                                    cambios.push({
-                                        campo: key,
-                                        valor_anterior: existingRecord[key],
-                                        valor_nuevo: log.Detalles[key]
-                                    });
-                                } else if (log.Detalles[key] !== existingRecord[key]) {
-                                    cambios.push({
-                                        campo: key,
-                                        valor_anterior: existingRecord[key],
-                                        valor_nuevo: log.Detalles[key]
-                                    });
-                                }
-                            }
-
-                            await Modelo.updateOne(filter, log.Detalles);
-                            console.log(`Datos actualizados en la tabla ${log.Nombre_Tabla}`);
-
-                            if (cambios.length > 0) {
-                                const updateLog = new LogUpdate({
-                                    Usuario: log.Usuario,
-                                    Nombre_Tabla: log.Nombre_Tabla,
-                                    Id_Asociado: log.Id_Asociado,
-                                    Cambios: cambios
-                                });
-
-                                await updateLog.save();
-                                console.log('Log de actualización guardado exitosamente');
-                            } else {
-                                console.log('No se detectaron cambios en los datos');
-                            }
-
-                            break;
-
-
-                        case 'SELECT':
-                            console.log(`Operación SELECT detectada, no se realiza ninguna acción.`);
-                            break;
-
-                        default:
-                            const message = `Operación no soportada: ${log.Operacion}`;
+                        if (!Modelo) {
+                            const message = `No se encontró un modelo para la tabla ${log.Nombre_Tabla}.`;
                             console.log(message);
                             return res.status(400).json({ message });
+                        }
+
+                        log.Detalles = convertirFechas(log.Detalles);
+                        log.Fecha_de_Registro = convertirFechas({ fecha_de_nac: log.Fecha_de_Registro }).fecha_de_nac;
+
+                        switch (log.Operacion) {
+                            case 'INSERT':
+                                if (log.Nombre_Tabla === 'Dtos_Personales') {
+                                    log.Detalles.Id_Asociado = log.Id_Asociado;
+                                }
+                                const nuevoRegistro = new Modelo(log.Detalles);
+                                await nuevoRegistro.save();
+                                console.log(`Datos insertados en la tabla ${log.Nombre_Tabla}`);
+                                break;
+
+                            case 'UPDATE':
+                                let filter = {};
+                                let idField;
+                                const modelo = modelosActualizacion[log.Nombre_Tabla]; // Cambié a 'modelo'
+
+                                if (!modelo) {
+                                    console.log(`Nombre de tabla no reconocido: ${log.Nombre_Tabla}`);
+                                    continue;
+                                }
+
+                                switch (log.Nombre_Tabla) {
+                                    case 'Dtos_Personales':
+                                        idField = 'Id_Asociado';
+                                        break;
+                                    case 'InfoEmpresarial':
+                                        idField = 'Id_empleado';
+                                        break;
+                                    case 'Informacion_Practicas':
+                                        idField = 'ID_Practicante';
+                                        break;
+                                    default:
+                                        console.log(`Nombre de tabla no reconocido: ${log.Nombre_Tabla}`);
+                                        continue;
+                                }
+
+                                if (log.Id_Asociado !== null && log.Id_Asociado !== undefined) {
+                                    filter = { [idField]: Number(log.Id_Asociado) };
+                                } else {
+                                    const message = `No se encontró el campo '${idField}' o es nulo en los detalles del registro para la tabla ${log.Nombre_Tabla}.`;
+                                    console.log(message);
+                                    continue;
+                                }
+
+                                const existingRecord = await modelo.findOne(filter); // Utiliza 'modelo' aquí
+
+                                if (!existingRecord) {
+                                    const message = `Registro no encontrado para actualización en la tabla ${log.Nombre_Tabla}`;
+                                    console.log(message);
+                                    return res.status(400).json({ message });
+                                }
+
+                                const cambios = [];
+                                for (let key in log.Detalles) {
+                                    if (key.includes('Fecha') && (log.Detalles[key].getTime() !== existingRecord[key]?.getTime())) {
+                                        cambios.push({
+                                            campo: key,
+                                            valor_anterior: existingRecord[key],
+                                            valor_nuevo: log.Detalles[key]
+                                        });
+                                    } else if (log.Detalles[key] !== existingRecord[key]) {
+                                        cambios.push({
+                                            campo: key,
+                                            valor_anterior: existingRecord[key],
+                                            valor_nuevo: log.Detalles[key]
+                                        });
+                                    }
+                                }
+
+                                await modelo.updateOne(filter, log.Detalles); // Utiliza 'modelo' aquí
+                                console.log(`Datos actualizados en la tabla ${log.Nombre_Tabla}`);
+
+                                if (cambios.length > 0) {
+                                    const updateLog = new LogUpdate({
+                                        Usuario: log.Usuario,
+                                        Nombre_Tabla: log.Nombre_Tabla,
+                                        Id_Asociado: log.Id_Asociado,
+                                        Cambios: cambios
+                                    });
+
+                                    await updateLog.save();
+                                    console.log('Log de actualización guardado exitosamente');
+                                } else {
+                                    console.log('No se detectaron cambios en los datos');
+                                }
+
+                                break;
+
+                            default:
+                                const message = `Operación no soportada: ${log.Operacion}`;
+                                console.log(message);
+                                return res.status(400).json({ message });
+                        }
+                    } else {
+                        console.log(`Operación SELECT detectada, no se realiza ninguna acción.`);
                     }
 
                     const newRegistro = new Registro({

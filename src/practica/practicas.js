@@ -1,10 +1,12 @@
 // Modelo para InformacionPracticas
 import mongoose, { Schema } from 'mongoose';
 const InformacionPracticasSchema =  mongoose.Schema({
-    Id_Asociado: {
+
+    ID_Practicante: {
         type: String,
         required: [true, 'El ID del practicante es obligatorio'],
     },
+
     Institucion_Colegio: {
         type: String,
         required: [true, 'La institución o colegio es obligatorio'],
@@ -21,7 +23,7 @@ const InformacionPracticasSchema =  mongoose.Schema({
         type: String,
         required: [true, 'Las habilidades son obligatorias'],
     },
-    Número_De_Horas: {
+    Numero_de_Horas: {
         type: Number,
         required: [true, 'El número de horas es obligatorio'],
     },
@@ -39,14 +41,10 @@ const InformacionPracticasSchema =  mongoose.Schema({
     },
     Estado: {
         type: String,
-        enum: ['Aceptado', 'Rechazado'],
+        enum: ['Aceptado', 'Rechazado', 'Pendiente'],
         required: [true, 'El estado es obligatorio'],
     },
-    action: {
-        type: String,
-        enum: ['Crear', 'Actualizar', 'Eliminar'],
-        required: [true, 'La acción es obligatoria'],
-    },
+
     fecha_de_registro: {
         type: Date,
         default: Date.now,

@@ -4,58 +4,49 @@ const DtosPersonalesSchema = mongoose.Schema({
 
     Id_Asociado: {
         type: String,
-        required: [true, 'La id asignada es obligatoria']
     },
 
-    primer_nombre: {
+    Primer_Nombre: {
         type: String,
         required: [true, 'El primer nombre es obligatorio'],
     },
-    segundo_nombre: {
+    Segundo_Nombre: {
         type: String,
     },
-    tercer_nombre: {
+    Tercer_Nombre: {
         type: String,
     },
-    primer_apellido: {
+    Primer_Apellido: {
         type: String,
         required: [true, 'El primer apellido es obligatorio'],
     },
-    segundo_apellido: {
+    Segundo_Apellido: {
         type: String,
     },
-    apellido_de_casada: {
+    Apellido_de_Casada: {
         type: String,
     },
-    fecha_de_nac: {
+    Fecha_de_Nac: {
         type: Date,
         required: [true, 'La fecha de nacimiento es obligatoria'],
     },
-    lugar_de_nac: {
-        type: String,
-        required: [true, 'El lugar de nacimiento es obligatorio'],
-    },
-    direccion_domicilio: {
-        type: String,
-        required: [true, 'La dirección de domicilio es obligatoria'],
-    },
-    numero_celular: {
-        type: String,
-        required: [true, 'El número de celular es obligatorio'],
-    },
-    numero_casa: {
+    Lugar_de_Nac: {
         type: String,
     },
-    correo_electronico: {
+    Direccion_De_Domicilio: {
+        type: String,
+    },
+    Numero_De_Celular: {
+        type: String,
+    },
+    Numero_De_Casa: {
+        type: String,
+    },
+    Correo_Electronico: {
         type: String,
         required: [true, 'El correo electrónico es obligatorio'],
     },
-    action: {
-        type: String,
-        enum: ['Crear', 'Actualizar', 'Eliminar'],
-        required: [true, 'La acción es obligatoria'],
-    },
-    fecha_de_registro: {
+    Fecha_De_Registro: {
         type: Date,
         default: Date.now
     }

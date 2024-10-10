@@ -29,6 +29,7 @@ const RegistroSchema =  mongoose.Schema({
             },
             Id_Asociado: {
                 type: String,
+                required: false
             },
             Detalles: {
                 type: Schema.Types.Mixed, 

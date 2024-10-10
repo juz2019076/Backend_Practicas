@@ -3,15 +3,15 @@
 import mongoose, { Schema } from 'mongoose';
 
 const InfoEmpresarialSchema =  mongoose.Schema({
-    Id_Asociado: {
+    Id_empleado: {
         type: String,
         required: [true, 'El ID del empleado es obligatorio'],
     },
-    Código_personal: {
+    Codigo_personal: {
         type: String,
         required: [true, 'El código personal es obligatorio'],
     },
-    Fecha_contratación: {
+    Fecha_contratacion: {
         type: Date,
         required: [true, 'La fecha de contratación es obligatoria'],
     },
@@ -27,7 +27,7 @@ const InfoEmpresarialSchema =  mongoose.Schema({
         type: String,
         required: [true, 'El sueldo es obligatorio'],
     },
-    Descripción_responsabilidades: {
+    Descripcion_responsabilidades: {
         type: String,
         required: [true, 'La descripción de responsabilidades es obligatoria'],
     },
@@ -41,14 +41,9 @@ const InfoEmpresarialSchema =  mongoose.Schema({
     },
     Estado: {
         type: String,
-        enum: ['Alta', 'Baja'],
+        enum: ['Alta', 'Baja', 'Activo', 'De Baja'],
         required: [true, 'El estado es obligatorio'],
-    },
-    action: {
-        type: String,
-        enum: ['Crear', 'Actualizar', 'Eliminar'],
-        required: [true, 'La acción es obligatoria'],
-    },
+    }, 
     fecha_de_registro: {
         type: Date,
         default: Date.now()
